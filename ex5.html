@@ -4,6 +4,17 @@
         <meta charset="utf-8">
         <title>자바스크립트 예제5</title>
         <script>
+          function setColor(color) {
+            // a 태그를 전부 찾아서 반환받은것을 alist에 저장. 배열 형태로 저장됨
+            // 야간 모드 전환시 링크의 색깔또한 바뀌는 코드.
+            var alist = document.querySelectorAll('a');
+            var i = 0;
+            while(i < alist.length) {
+              alist[i].style.color = color;
+              i = i + 1;
+            }
+          }
+
           function nightDayHandler(self) {
             var target = document.querySelector('body');
 
@@ -12,14 +23,7 @@
             target.style.color = 'white';
             self.value = 'day';
 
-            // a 태그를 전부 찾아서 반환받은것을 alist에 저장. 배열 형태로 저장됨
-            // 야간 모드 전환시 링크의 색깔또한 바뀌는 코드.
-            var alist = document.querySelectorAll('a');
-            var i = 0;
-            while(i < alist.length) {
-              alist[i].style.color = 'powderblue';
-              i = i + 1;
-            }
+            setColor('powderblue');
           } 
 
           else {
@@ -27,20 +31,14 @@
             target.style.color = 'black';
             self.value = 'night';
 
-            var alist = document.querySelectorAll('a');
-            var i = 0;
-            while(i < alist.length) {
-              alist[i].style.color = 'blue';
-              i = i + 1;
-              }
+            setColor('blue');
             }
           }
         </script>
-      </head>
+      </head> 
     
       <body>
         <input type="button" value="night" onclick="nightDayHandler(this)">
-
         <h1>WEB</h1>
         <ol>
             <li><a href="1.html">HTML</a></li>
